@@ -1,86 +1,4 @@
-interface Project {
-  name: string
-  href: string
-}
-
-interface Profile {
-  name: string
-  image: string
-  role: string
-  bio: string
-  email: string
-  linkedin: string
-  github: string
-  instagram: string
-}
-
-interface Blog {
-  title: string
-  description: string
-  scheme: 'light' | 'dark' | 'system'
-}
-
-interface NotionConfig {
-  pageId: string | undefined
-}
-
-interface GoogleAnalytics {
-  enable: boolean
-  config: {
-    measurementId: string
-  }
-}
-
-interface GoogleSearchConsole {
-  enable: boolean
-  config: {
-    siteVerification: string
-  }
-}
-
-interface NaverSearchAdvisor {
-  enable: boolean
-  config: {
-    siteVerification: string
-  }
-}
-
-interface Utterances {
-  enable: boolean
-  config: {
-    repo: string
-    'issue-term': string
-    label: string
-  }
-}
-
-interface Cusdis {
-  enable: boolean
-  config: {
-    host: string
-    appid: string
-  }
-}
-
-interface Config {
-  profile: Profile
-  projects: Project[]
-  blog: Blog
-  link: string
-  since: number
-  lang: 'en-US' | 'zh-CN' | 'zh-HK' | 'zh-TW' | 'ja-JP' | 'es-ES' | 'ko-KR'
-  ogImageGenerateURL: string
-  notionConfig: NotionConfig
-  googleAnalytics: GoogleAnalytics
-  googleSearchConsole: GoogleSearchConsole
-  naverSearchAdvisor: NaverSearchAdvisor
-  utterances: Utterances
-  cusdis: Cusdis
-  isProd: boolean
-  revalidateTime: number
-}
-
-const CONFIG: Config = {
+const CONFIG = {
   // profile setting (required)
   profile: {
     name: "orca",
@@ -93,10 +11,10 @@ const CONFIG: Config = {
     instagram: "",
   },
   projects: [
-    {
-      name: "morethan-log",
-      href: "https://morethan-log.vercel.app",
-    }
+    // {
+    //   name: "morethan-log",
+    //   href: "https://morethan-log.vercel.app",
+    // }
   ],
   // blog setting (required)
   blog: {
@@ -154,4 +72,4 @@ const CONFIG: Config = {
   revalidateTime: 21600 * 7, // revalidate time for [slug], index
 }
 
-export { CONFIG }
+module.exports = { CONFIG }
