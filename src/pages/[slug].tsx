@@ -1,4 +1,5 @@
 import Detail from "src/routes/Detail"
+import { useRouter } from "next/router"
 import { filterPosts } from "src/libs/utils/notion"
 import { CONFIG } from "site.config"
 import { NextPageWithLayout } from "../types"
@@ -36,7 +37,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const detailPosts = filterPosts(posts, filter)
   const postDetail = detailPosts.find((t: any) => t.slug === slug)
-  const recordMap = await getRecordMap(postDetail?.id!)
+
+  if (!postDetail) {
+    return {
+      notFound: true,
+    }
+  }
+
+  const recordMap = await getRecordMap(postDetail.id)
 
   await queryClient.prefetchQuery(queryKey.post(`${slug}`), () => ({
     ...postDetail,
@@ -53,7 +61,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const DetailPage: NextPageWithLayout = () => {
   const post = usePostQuery()
+  const router = useRouter()
 
+  if (router.isFallback) return <div>Loading...</div>
   if (!post) return <CustomError />
 
   const image =
