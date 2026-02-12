@@ -7,7 +7,7 @@ setup:
 
 dev:
 	docker build -f Dockerfile.dev . -t morethan-log-dev ; \
-	docker run -it --rm -p 3000:3000 -v ${PWD}:/app morethan-log-dev 
+	docker run -it --rm -p 3000:3000 -v ${PWD}:/app -u 1000 morethan-log-dev 
 
 run:
 	docker build -f Dockerfile.prod . -t morethan-log-prod ; \
