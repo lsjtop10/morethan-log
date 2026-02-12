@@ -20,8 +20,7 @@ const PostHeader: React.FC<Props> = ({ data }) => {
             {data.author && data.author[0] && data.author[0].name && (
               <>
                 <div className="author">
-                  <Image
-                    css={{ borderRadius: "50%" }}
+                  <StyledAuthorImage
                     src={data.author[0].profile_photo || CONFIG.profile.image}
                     alt="profile_photo"
                     width={24}
@@ -50,11 +49,11 @@ const PostHeader: React.FC<Props> = ({ data }) => {
           </div>
           {data.thumbnail && (
             <div className="thumbnail">
-              <Image
+              <StyledThumbnailImage
                 src={data.thumbnail}
-                css={{ objectFit: "cover" }}
                 fill
                 alt={data.title}
+                priority
               />
             </div>
           )}
@@ -65,6 +64,14 @@ const PostHeader: React.FC<Props> = ({ data }) => {
 }
 
 export default PostHeader
+
+const StyledAuthorImage = styled(Image)`
+  border-radius: 50%;
+`
+
+const StyledThumbnailImage = styled(Image)`
+  object-fit: cover;
+`
 
 const StyledWrapper = styled.div`
   .title {

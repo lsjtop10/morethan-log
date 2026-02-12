@@ -24,11 +24,10 @@ const PostCard: React.FC<Props> = ({ data }) => {
         )}
         {data.thumbnail && (
           <div className="thumbnail">
-            <Image
+            <StyledThumbnailImage
               src={data.thumbnail}
               fill
               alt={data.title}
-              css={{ objectFit: "cover" }}
             />
           </div>
         )}
@@ -60,6 +59,10 @@ const PostCard: React.FC<Props> = ({ data }) => {
 }
 
 export default PostCard
+
+const StyledThumbnailImage = styled(Image)`
+  object-fit: cover;
+`
 
 const StyledWrapper = styled(Link)`
   article {
