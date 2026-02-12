@@ -11,22 +11,22 @@ const CONFIG = {
     instagram: "",
   },
   projects: [
-    // {
-    //   name: "morethan-log",
-    //   href: "https://morethan-log.vercel.app",
-    // }
+    {
+      name: "Not Alone",
+      href: "https://not-alone.orca.pe.kr",
+    }
   ],
   // blog setting (required)
   blog: {
     title: "Orca log",
     description: "welcome to orca-log!",
-    scheme: "dark", // 'light' | 'dark' | 'system'
+    scheme: "system", // 'light' | 'dark' | 'system'
   },
 
   // CONFIG configration (required)
-  link: "https://morethan-log.vercel.app",
+  link: "https://blog.orca.pe.kr",
   since: 2022, // If leave this empty, current year will be used.
-  lang: "en-US", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES', 'ko-KR']
+  lang: "ko-KR", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES', 'ko-KR']
   ogImageGenerateURL: "https://og-image-korean.vercel.app", // The link to generate OG image, don't end with a slash
 
   // notion configuration (required)
@@ -41,18 +41,21 @@ const CONFIG = {
       measurementId: process.env.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID || "",
     },
   },
+
   googleSearchConsole: {
     enable: false,
     config: {
       siteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
     },
   },
+
   naverSearchAdvisor: {
     enable: false,
     config: {
       siteVerification: process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION || "",
     },
   },
+  
   utterances: {
     enable: true,
     config: {
@@ -61,6 +64,7 @@ const CONFIG = {
       label: "💬 Utterances",
     },
   },
+
   cusdis: {
     enable: false,
     config: {
